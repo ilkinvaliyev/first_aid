@@ -60,9 +60,12 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
   Material buildTabBar() {
     return Material(
       color: Colors.white,
-      child: SizedBox(
+      child: Container(
+        margin: EdgeInsets.only(left: 20),
         height: 70,
+        width: MediaQuery.of(context).size.width,
         child: TabBar(indicatorColor: Colors.transparent,controller: tabController,
+          isScrollable: true,
           tabs: [
             GestureDetector(
               onTap: (){

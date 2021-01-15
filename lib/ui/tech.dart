@@ -14,10 +14,9 @@ class Tech extends StatefulWidget {
 class _TechState extends State<Tech> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: buildAppBar(),
-   //   bottomNavigationBar: TabBarNav(0),
+      //   bottomNavigationBar: TabBarNav(0),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -38,27 +37,33 @@ class _TechState extends State<Tech> {
                   margin: EdgeInsets.all(20),
                   child: Column(
                     children: <Widget>[
-                      buildSingleChildScrollView(context,name: "Allergiyalar",icon : "allergies.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Allergiyalar", icon: "allergies.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Astma hücumları",icon : "lungs-virus.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Astma hücumları", icon: "lungs-virus.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Qanaxmalar",icon : "raindrops.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Qanaxmalar", icon: "raindrops.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Sınıqlar",icon : "bone-break.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Sınıqlar", icon: "bone-break.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Yanıqlar",icon : "fire-alt.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Yanıqlar", icon: "fire-alt.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Boğulmalar",icon : "head-side-cough.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Boğulmalar", icon: "head-side-cough.png"),
                     ],
                   ),
                 ),
@@ -70,45 +75,46 @@ class _TechState extends State<Tech> {
     );
   }
 
-  SingleChildScrollView buildSingleChildScrollView(BuildContext context,{String name, String icon}) {
+  SingleChildScrollView buildSingleChildScrollView(BuildContext context,
+      {String name, String icon}) {
+    double areaWith = MediaQuery.of(context).size.width * 0.6;
+
     return SingleChildScrollView(
+        child: Container(
+      width: MediaQuery.of(context).size.width,
+      height: 60,
+      child: InkWell(
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Single()));
+          },
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 60,
-            child: Row(
-              children: <Widget>[
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Single()));
-                    },
-                  child: Container(
-                    width: 250,
-                    height: 35,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                              color: Colors.red[600],
-                              borderRadius: BorderRadius.circular(40),
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/$icon"),
-                              )
-                          ),
-                        ),
-                        SizedBox(width: 10,),
-                        Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)
-                      ],
+            child: ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 0),
+              leading: Container(
+                  width: 35,
+                  height: 35,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    borderRadius: BorderRadius.circular(40),
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/$icon"),
                     ),
+                  )),
+              title: Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
               ),
-                ),
-                SizedBox(width: 40,),
-                Icon(Icons.arrow_forward_ios,size: 22,)
-              ],
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 22,
+              ),
             ),
-          ),
-        );
+          )),
+    ));
   }
 
   AppBar buildAppBar() {
@@ -144,3 +150,54 @@ class _TechState extends State<Tech> {
     );
   }
 }
+// Container(
+// width: 250,
+// height: 35,
+// child: Row(
+// children: [
+// Container(
+// width: 35,
+// height: 35,
+// decoration: BoxDecoration(
+// color: Colors.red[600],
+// borderRadius: BorderRadius.circular(40),
+// image: DecorationImage(
+// image: AssetImage("assets/images/$icon"),
+// )
+// ),
+// ),
+// SizedBox(width: 10,),
+// Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)
+// ],
+// ),
+// )
+
+//
+// Row(
+// children: [
+// Container(
+// width: areaWith,
+// height: 35,
+// child: Row(
+// children: [
+// Container(
+// width: 35,
+// height: 35,
+// decoration: BoxDecoration(
+// color: Colors.red[600],
+// borderRadius: BorderRadius.circular(40),
+// image: DecorationImage(
+// image: AssetImage("assets/images/$icon"),
+// )
+// ),
+// ),
+// SizedBox(width: 10,),
+// Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),),
+// ],
+// ),
+// ),
+// SizedBox(width : areaWith - 188),
+// Icon(Icons.arrow_forward_ios,size: 22,)
+//
+// ],
+// ),
