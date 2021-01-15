@@ -11,10 +11,9 @@ class Preparation extends StatefulWidget {
 class _PreparationState extends State<Preparation> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: buildAppBar(),
-   //   bottomNavigationBar: TabBarNav(1),
+      //   bottomNavigationBar: TabBarNav(1),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -35,27 +34,36 @@ class _PreparationState extends State<Preparation> {
                   margin: EdgeInsets.all(20),
                   child: Column(
                     children: <Widget>[
-                      buildSingleChildScrollView(context,name: "Kimyəvi təcili vəziyyət",icon : "allergies.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Kimyəvi təcili vəziyyət",
+                          icon: "allergies.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Təcili yardım dəsti",icon : "lungs-virus.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Təcili yardım dəsti", icon: "lungs-virus.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Gündəlik fövqəladə hallar",icon : "raindrops.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Gündəlik fövqəladə hallar",
+                          icon: "raindrops.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Daşqın",icon : "bone-break.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Daşqın", icon: "bone-break.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Yanğın",icon : "fire-alt.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Yanğın", icon: "fire-alt.png"),
                       Divider(
                         color: Colors.black45,
                       ),
-                      buildSingleChildScrollView(context,name: "Qrip pandemiyası",icon : "head-side-cough.png"),
+                      buildSingleChildScrollView(context,
+                          name: "Qrip pandemiyası",
+                          icon: "head-side-cough.png"),
                     ],
                   ),
                 ),
@@ -67,40 +75,40 @@ class _PreparationState extends State<Preparation> {
     );
   }
 
-
-  SingleChildScrollView buildSingleChildScrollView(BuildContext context,{String name, String icon}) {
+  SingleChildScrollView buildSingleChildScrollView(BuildContext context,
+      {String name, String icon}) {
     return SingleChildScrollView(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 60,
-        child: Row(
-          children: <Widget>[
-            Container(
-              width: 250,
-              height: 35,
-              child: Row(
-                children: [
-                  Container(
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 60,
+            child: Container(
+              child: ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                leading: Container(
                     width: 35,
                     height: 35,
                     decoration: BoxDecoration(
-                        color: Colors.red[600],
-                        borderRadius: BorderRadius.circular(40),
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/$icon"),
-                        )
-                    ),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)
-                ],
+                      color: Colors.red[600],
+                      borderRadius: BorderRadius.circular(40),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/$icon"),
+                      ),
+                    )),
+                title: Text(
+                  name,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                  size: 22,
+                ),
               ),
-            ),
-            SizedBox(width: 40,),
-            Icon(Icons.arrow_forward_ios,size: 22,)
-          ],
-        ),
-      ),
+            )
+        )
     );
   }
 
@@ -119,7 +127,7 @@ class _PreparationState extends State<Preparation> {
           Text(
             "Hazırlıq",
             style:
-            TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
           ),
           //SizedBox(width: 10,),
           Icon(

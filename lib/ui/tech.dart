@@ -110,10 +110,12 @@ class _TechState extends State<Tech> {
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
+                color: Colors.black,
                 size: 22,
               ),
             ),
-          )),
+          )
+      ),
     ));
   }
 

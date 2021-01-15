@@ -96,33 +96,33 @@ class _HomeState extends State<FirstAid> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 60,
-        child: Row(
-          children: <Widget>[
-            Container(
-              width: 250,
-              height: 35,
-              child: Row(
-                children: [
-                  Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                        color: Colors.red[600],
-                        borderRadius: BorderRadius.circular(40),
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/$icon"),
-                        )
-                    ),
+        child:  Container(
+          child: ListTile(
+            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+            leading: Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.red[600],
+                  borderRadius: BorderRadius.circular(40),
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/$icon"),
                   ),
-                  SizedBox(width: 10,),
-                  Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)
-                ],
-              ),
+                )),
+            title: Text(
+              name,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
             ),
-            SizedBox(width: 40,),
-            Icon(Icons.arrow_forward_ios,size: 22,)
-          ],
-        ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.black,
+              size: 22,
+            ),
+          ),
+        )
       ),
     );
   }
